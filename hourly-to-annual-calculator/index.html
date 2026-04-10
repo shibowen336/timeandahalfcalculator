@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hourly to Annual Salary Calculator | Convert Hourly Wage to Yearly Pay</title>
+<meta name="description" content="Free hourly to annual salary calculator. Convert any hourly wage to weekly, biweekly, monthly, and yearly pay. Includes overtime earnings and part-time options.">
+<meta name="keywords" content="hourly to annual calculator, hourly to yearly salary, wage converter, hourly wage to salary, annual salary calculator, salary converter">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1a5490">
+
+<link rel="canonical" href="https://timeandahalfcalculator.one/hourly-to-annual-calculator/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%B0%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://timeandahalfcalculator.one/hourly-to-annual-calculator/">
+<meta property="og:title" content="Hourly to Annual Salary Calculator">
+<meta property="og:description" content="Convert hourly wages to weekly, monthly, and yearly pay including overtime.">
+
+<link rel="stylesheet" href="../style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Hourly to Annual Salary Calculator",
+  "url": "https://timeandahalfcalculator.one/hourly-to-annual-calculator/",
+  "description": "Free hourly wage to annual salary converter with overtime and flexible pay period support.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <h1 class="logo"><a href="../">Time and a Half Calculator</a></h1>
+    <p class="tagline">Free overtime, double time &amp; holiday pay calculator</p>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <div class="container">
+    <ul>
+      <li><a href="../">Home</a></li>
+      <li><a href="../california-overtime-calculator/">California</a></li>
+      <li><a href="../new-york-overtime-calculator/">New York</a></li>
+      <li><a href="../texas-overtime-calculator/">Texas</a></li>
+      <li><a href="../double-time-calculator/">Double Time</a></li>
+      <li><a href="../holiday-pay-calculator/">Holiday Pay</a></li>
+      <li><a href="../flsa-overtime-rules/">FLSA Rules</a></li>
+      <li><a href="../hourly-to-annual-calculator/" class="active">Hourly→Annual</a></li>
+      <li><a href="../overtime-pay-chart/">Pay Chart</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container">
+
+  <section class="info-section" style="margin-top:0">
+    <h1 style="font-size:28px;margin-bottom:12px">Hourly to Annual Salary Calculator</h1>
+    <p>
+      Convert your hourly wage into weekly, biweekly, monthly, and yearly pay. This calculator also factors in overtime
+      earnings, vacation weeks, and time-and-a-half rates. Useful for comparing job offers, negotiating raises, or
+      budgeting when switching between hourly and salaried work.
+    </p>
+  </section>
+
+  <section class="calculator-card">
+    <h2>Wage Converter</h2>
+    <p class="helper-text">Enter your hourly rate, weekly hours, and optional overtime to see your total gross earnings.</p>
+
+    <div class="input-group">
+      <label for="hourlyRate">Hourly Rate ($)</label>
+      <input type="number" id="hourlyRate" min="0" step="0.01" value="25">
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label for="hoursPerWeek">Regular Hours / Week</label>
+        <input type="number" id="hoursPerWeek" min="0" max="168" step="0.25" value="40">
+      </div>
+      <div class="input-group">
+        <label for="weeksPerYear">Weeks / Year
+          <span class="hint">(subtract unpaid time off)</span>
+        </label>
+        <input type="number" id="weeksPerYear" min="1" max="52" step="1" value="52">
+      </div>
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label for="otHoursPerWeek">Overtime Hours / Week
+          <span class="hint">(1.5x rate)</span>
+        </label>
+        <input type="number" id="otHoursPerWeek" min="0" step="0.25" value="0">
+      </div>
+      <div class="input-group">
+        <label for="otMultiplier">Overtime Multiplier</label>
+        <select id="otMultiplier">
+          <option value="1">1.0x (straight time)</option>
+          <option value="1.5" selected>1.5x (time and a half)</option>
+          <option value="2">2.0x (double time)</option>
+        </select>
+      </div>
+    </div>
+
+    <button id="calculateBtn" class="btn-primary">Calculate</button>
+    <button id="resetBtn" class="btn-secondary">Reset</button>
+  </section>
+
+  <section class="results-card" id="results">
+    <h2>Your Pay by Period</h2>
+    <div class="result-row"><span class="result-label">Hourly Rate</span><span class="result-value" id="rHourly">$0.00</span></div>
+    <div class="result-detail" id="dHourly">—</div>
+    <div class="result-row"><span class="result-label">Daily (8 hrs)</span><span class="result-value" id="rDaily">$0.00</span></div>
+    <div class="result-detail" id="dDaily">—</div>
+    <div class="result-row"><span class="result-label">Weekly</span><span class="result-value" id="rWeekly">$0.00</span></div>
+    <div class="result-detail" id="dWeekly">—</div>
+    <div class="result-row"><span class="result-label">Biweekly</span><span class="result-value" id="rBiweekly">$0.00</span></div>
+    <div class="result-detail" id="dBiweekly">—</div>
+    <div class="result-row"><span class="result-label">Semi-Monthly</span><span class="result-value" id="rSemi">$0.00</span></div>
+    <div class="result-detail" id="dSemi">—</div>
+    <div class="result-row"><span class="result-label">Monthly</span><span class="result-value" id="rMonthly">$0.00</span></div>
+    <div class="result-detail" id="dMonthly">—</div>
+    <div class="result-row total-row"><span class="result-label">Annual</span><span class="result-value total-value" id="rAnnual">$0.00</span></div>
+    <div class="result-detail" id="dAnnual">—</div>
+  </section>
+
+  <section class="info-section">
+    <h2>How to Convert Hourly Wage to Annual Salary</h2>
+    <p>The basic formula is simple:</p>
+    <div class="formula-box">Annual Salary = Hourly Rate × Hours per Week × Weeks per Year</div>
+    <p>
+      For a full-time worker (40 hours/week, 52 weeks/year), this is just: <strong>Hourly Rate × 2,080</strong>.
+      So $25/hour equals $25 × 2,080 = <strong>$52,000/year</strong>. If you include any overtime or subtract unpaid
+      vacation weeks, the math changes.
+    </p>
+
+    <h3>Common Hourly Rates Converted to Annual Salary</h3>
+    <p>Based on 40 hours per week, 52 weeks per year (no unpaid time off):</p>
+    <div class="table-wrap">
+      <table class="pay-table">
+        <thead>
+          <tr>
+            <th>Hourly Rate</th>
+            <th>Weekly</th>
+            <th>Monthly</th>
+            <th>Annual</th>
+            <th>Annual + 10 hrs/wk OT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>$10</td><td>$400</td><td>$1,733</td><td>$20,800</td><td>$28,600</td></tr>
+          <tr><td>$12</td><td>$480</td><td>$2,080</td><td>$24,960</td><td>$34,320</td></tr>
+          <tr><td>$15</td><td>$600</td><td>$2,600</td><td>$31,200</td><td>$42,900</td></tr>
+          <tr><td>$18</td><td>$720</td><td>$3,120</td><td>$37,440</td><td>$51,480</td></tr>
+          <tr><td>$20</td><td>$800</td><td>$3,467</td><td>$41,600</td><td>$57,200</td></tr>
+          <tr><td>$22</td><td>$880</td><td>$3,813</td><td>$45,760</td><td>$62,920</td></tr>
+          <tr><td>$25</td><td>$1,000</td><td>$4,333</td><td>$52,000</td><td>$71,500</td></tr>
+          <tr><td>$28</td><td>$1,120</td><td>$4,853</td><td>$58,240</td><td>$80,080</td></tr>
+          <tr><td>$30</td><td>$1,200</td><td>$5,200</td><td>$62,400</td><td>$85,800</td></tr>
+          <tr><td>$35</td><td>$1,400</td><td>$6,067</td><td>$72,800</td><td>$100,100</td></tr>
+          <tr><td>$40</td><td>$1,600</td><td>$6,933</td><td>$83,200</td><td>$114,400</td></tr>
+          <tr><td>$50</td><td>$2,000</td><td>$8,667</td><td>$104,000</td><td>$143,000</td></tr>
+          <tr><td>$60</td><td>$2,400</td><td>$10,400</td><td>$124,800</td><td>$171,600</td></tr>
+          <tr><td>$75</td><td>$3,000</td><td>$13,000</td><td>$156,000</td><td>$214,500</td></tr>
+          <tr><td>$100</td><td>$4,000</td><td>$17,333</td><td>$208,000</td><td>$286,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Pay Periods Explained</h3>
+    <ul>
+      <li><strong>Weekly:</strong> Paid every week (52 paychecks/year). Common in hourly jobs.</li>
+      <li><strong>Biweekly:</strong> Paid every 2 weeks (26 paychecks/year). Most common in US private sector.</li>
+      <li><strong>Semi-monthly:</strong> Paid twice per month (24 paychecks/year), typically on the 15th and last day.</li>
+      <li><strong>Monthly:</strong> Paid once per month (12 paychecks/year). Common in executive and teaching jobs.</li>
+    </ul>
+    <p>
+      Note that biweekly and semi-monthly are <em>not</em> the same. Biweekly means 26 paychecks, while semi-monthly
+      means 24. This matters because a biweekly paycheck is slightly smaller than a semi-monthly one (for the same
+      annual salary).
+    </p>
+
+    <h3>Gross vs. Net Pay</h3>
+    <p>
+      This calculator shows <strong>gross pay</strong> — what you earn before taxes and deductions. Your actual
+      take-home pay (net pay) will be lower due to:
+    </p>
+    <ul>
+      <li>Federal income tax (10% to 37% marginal rate)</li>
+      <li>Social Security tax (6.2% on wages up to $168,600 in 2024)</li>
+      <li>Medicare tax (1.45%, plus 0.9% additional for high earners)</li>
+      <li>State and local income taxes (varies by state)</li>
+      <li>Health insurance premiums</li>
+      <li>Retirement contributions (401k, pension)</li>
+      <li>Other deductions (union dues, garnishments, HSA, etc.)</li>
+    </ul>
+    <p>
+      As a rough rule of thumb, expect your net pay to be about <strong>70-80% of your gross pay</strong>, depending
+      on your tax bracket and state.
+    </p>
+
+    <h3>Why Convert Hourly to Annual?</h3>
+    <ul>
+      <li><strong>Job offer comparison:</strong> Compare a $25/hour offer to a $55,000/year offer</li>
+      <li><strong>Mortgage or loan applications:</strong> Lenders typically ask for annual income</li>
+      <li><strong>Budget planning:</strong> Know your yearly earning power</li>
+      <li><strong>Raise negotiation:</strong> Frame a $1/hour raise as a $2,080/year increase</li>
+      <li><strong>Tax planning:</strong> Estimate your tax bracket based on annual income</li>
+    </ul>
+
+    <h3>Factoring in Unpaid Time Off</h3>
+    <p>
+      Hourly workers typically only get paid for hours actually worked, so unpaid vacation weeks reduce total annual
+      income. If you take 2 weeks of unpaid vacation per year, enter 50 weeks instead of 52 in the calculator above.
+    </p>
+    <p>
+      For example, $25/hour × 40 hrs/week × 52 weeks = $52,000/year with no time off. If you take 2 weeks unpaid,
+      that drops to $25 × 40 × 50 = $50,000/year.
+    </p>
+
+    <h3>Including Overtime in Annual Calculation</h3>
+    <p>
+      Overtime at 1.5x can add significantly to your annual income. At $20/hour with 10 hours of weekly overtime:
+    </p>
+    <ul>
+      <li>Regular pay: $20 × 40 × 52 = $41,600/year</li>
+      <li>Overtime pay: $20 × 1.5 × 10 × 52 = $15,600/year</li>
+      <li><strong>Total: $57,200/year</strong> (a 37.5% boost)</li>
+    </ul>
+    <p>
+      Keep in mind that consistent overtime isn't guaranteed and may fluctuate with business demand.
+    </p>
+
+    <h3>FAQ</h3>
+    <div class="faq">
+      <h4>How many work hours are in a year?</h4>
+      <p>2,080 hours for a standard 40-hour/week full-time job with no unpaid time off (40 × 52 = 2,080).</p>
+
+      <h4>What's the difference between biweekly and semi-monthly?</h4>
+      <p>Biweekly means 26 paychecks per year (every 2 weeks). Semi-monthly means 24 paychecks per year (twice a month). An annual salary divided 26 ways produces smaller paychecks than divided 24 ways.</p>
+
+      <h4>Is this calculator accurate for part-time workers?</h4>
+      <p>Yes. Just enter your actual weekly hours (e.g., 20 or 25) instead of 40. The calculator scales the annual amount accordingly.</p>
+
+      <h4>Does this include taxes?</h4>
+      <p>No. This shows gross income only. Taxes and other deductions will reduce your take-home pay by approximately 20-30% depending on your situation.</p>
+
+      <h4>How do I convert an annual salary back to hourly?</h4>
+      <p>Divide the annual salary by 2,080 (for full-time). So $60,000/year ÷ 2,080 = $28.85/hour equivalent.</p>
+    </div>
+
+    <p style="margin-top:24px">
+      <strong>Related calculators:</strong>
+      <a href="../">Overtime calculator</a> ·
+      <a href="../overtime-pay-chart/">Pay chart</a> ·
+      <a href="../flsa-overtime-rules/">FLSA rules</a>
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Time and a Half Calculator. Estimates only — not legal or tax advice.</p>
+  </div>
+</footer>
+
+<script src="../hourly-to-annual.js"></script>
+</body>
+</html>

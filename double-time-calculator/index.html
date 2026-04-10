@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Double Time Calculator | Free 2x Overtime Pay Calculator</title>
+<meta name="description" content="Free double time pay calculator. Compute 2x overtime pay instantly. Learn when double time applies, which states mandate it, and how to calculate it.">
+<meta name="keywords" content="double time calculator, 2x overtime pay, double time pay, double overtime calculator, when does double time apply">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1a5490">
+
+<link rel="canonical" href="https://timeandahalfcalculator.one/double-time-calculator/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%B0%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://timeandahalfcalculator.one/double-time-calculator/">
+<meta property="og:title" content="Double Time Calculator | Free 2x Overtime Pay Calculator">
+<meta property="og:description" content="Calculate 2x double time pay instantly. Learn when double time is required and how to calculate it.">
+
+<link rel="stylesheet" href="../style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Double Time Calculator",
+  "url": "https://timeandahalfcalculator.one/double-time-calculator/",
+  "description": "Free double time (2x) pay calculator with state-by-state rules.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <h1 class="logo"><a href="../">Time and a Half Calculator</a></h1>
+    <p class="tagline">Free overtime, double time &amp; holiday pay calculator</p>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <div class="container">
+    <ul>
+      <li><a href="../">Home</a></li>
+      <li><a href="../california-overtime-calculator/">California</a></li>
+      <li><a href="../new-york-overtime-calculator/">New York</a></li>
+      <li><a href="../texas-overtime-calculator/">Texas</a></li>
+      <li><a href="../double-time-calculator/" class="active">Double Time</a></li>
+      <li><a href="../holiday-pay-calculator/">Holiday Pay</a></li>
+      <li><a href="../flsa-overtime-rules/">FLSA Rules</a></li>
+      <li><a href="../hourly-to-annual-calculator/">Hourly→Annual</a></li>
+      <li><a href="../overtime-pay-chart/">Pay Chart</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container">
+
+  <section class="info-section" style="margin-top:0">
+    <h1 style="font-size:28px;margin-bottom:12px">Double Time Pay Calculator</h1>
+    <p>
+      <strong>Double time</strong> is overtime paid at 2 times your regular hourly rate. While time and a half (1.5x)
+      is required by federal law for hours over 40 per week, <strong>double time is not federally mandated</strong>.
+      It's required by certain state laws (most notably California) and is commonly offered by employers as a benefit
+      for working holidays or extended shifts.
+    </p>
+  </section>
+
+  <section class="calculator-card">
+    <h2>2x Double Time Calculator</h2>
+    <p class="helper-text">Enter your hourly rate and double time hours. The calculator also supports regular and 1.5x hours.</p>
+
+    <div class="input-group">
+      <label for="hourlyRate">Hourly Rate ($)</label>
+      <input type="number" id="hourlyRate" min="0" step="0.01" placeholder="e.g. 22.00" value="22">
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label for="regularHours">Regular Hours</label>
+        <input type="number" id="regularHours" min="0" step="0.25" value="40">
+      </div>
+
+      <div class="input-group">
+        <label for="overtimeHours">1.5x Hours</label>
+        <input type="number" id="overtimeHours" min="0" step="0.25" value="0">
+      </div>
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label for="doubleHours">Double Time Hours
+          <span class="hint">(2x rate)</span>
+        </label>
+        <input type="number" id="doubleHours" min="0" step="0.25" value="8">
+      </div>
+
+      <div class="input-group">
+        <label for="holidayHours">Holiday Hours
+          <span class="hint">(custom rate)</span>
+        </label>
+        <input type="number" id="holidayHours" min="0" step="0.25" value="0">
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="holidayMultiplier">Holiday Pay Multiplier</label>
+      <select id="holidayMultiplier">
+        <option value="1.5">1.5x</option>
+        <option value="2" selected>2.0x</option>
+        <option value="2.5">2.5x</option>
+        <option value="3">3.0x</option>
+      </select>
+    </div>
+
+    <button id="calculateBtn" class="btn-primary">Calculate Pay</button>
+    <button id="resetBtn" class="btn-secondary">Reset</button>
+  </section>
+
+  <section class="results-card" id="results">
+    <h2>Your Pay Breakdown</h2>
+    <div class="result-row"><span class="result-label">Regular Pay</span><span class="result-value" id="regularPay">$0.00</span></div>
+    <div class="result-detail" id="regularDetail">—</div>
+    <div class="result-row"><span class="result-label">Time and a Half (1.5x)</span><span class="result-value" id="overtimePay">$0.00</span></div>
+    <div class="result-detail" id="overtimeDetail">—</div>
+    <div class="result-row"><span class="result-label">Double Time (2x)</span><span class="result-value" id="doublePay">$0.00</span></div>
+    <div class="result-detail" id="doubleDetail">—</div>
+    <div class="result-row"><span class="result-label">Holiday Pay</span><span class="result-value" id="holidayPay">$0.00</span></div>
+    <div class="result-detail" id="holidayDetail">—</div>
+    <div class="result-row total-row"><span class="result-label">Total Gross Pay</span><span class="result-value total-value" id="totalPay">$0.00</span></div>
+    <div class="result-detail" id="totalDetail">—</div>
+  </section>
+
+  <section class="info-section">
+    <h2>What Is Double Time Pay?</h2>
+    <p>
+      Double time means earning twice your normal hourly rate for certain hours worked. If your regular rate is $20/hour,
+      double time is $40/hour. The formula is simple:
+    </p>
+    <div class="formula-box">Double Time Pay = Hourly Rate × 2 × Hours Worked</div>
+    <p>
+      <strong>Example:</strong> Working 6 hours of double time at $25/hour = $25 × 2 × 6 = <strong>$300</strong>.
+    </p>
+
+    <h3>When Does Double Time Apply?</h3>
+    <p>
+      Unlike time and a half, double time is not a federal requirement. It typically applies in these situations:
+    </p>
+    <ul>
+      <li><strong>State law:</strong> California requires 2x for hours worked over 12 in a single day</li>
+      <li><strong>7th consecutive workday:</strong> California requires 2x for hours over 8 on the 7th day</li>
+      <li><strong>Union contracts:</strong> Many collective bargaining agreements mandate double time for holidays, Sundays, or after a certain number of OT hours</li>
+      <li><strong>Employer policy:</strong> Some companies voluntarily pay double time on major holidays (Thanksgiving, Christmas) or for emergency call-outs</li>
+      <li><strong>Specific industries:</strong> Construction, healthcare, manufacturing, and public safety often have double time provisions</li>
+    </ul>
+
+    <h3>States That Require Double Time</h3>
+    <p>
+      Only a handful of states have laws that mandate double time pay. These are the most notable:
+    </p>
+    <ul>
+      <li><strong>California:</strong> 2x for hours over 12 in a single day. 2x for hours over 8 on the 7th consecutive workday.</li>
+      <li><strong>Colorado:</strong> No state-mandated 2x, but follows California-style rules for some industries.</li>
+      <li><strong>Federal contracts:</strong> Some federal contracts (covered by Davis-Bacon Act or service contracts) may require double time for holiday work.</li>
+    </ul>
+    <p>
+      In every other state, double time is purely a benefit your employer or union has chosen to offer. There is no
+      federal law requiring it under any circumstances.
+    </p>
+
+    <h3>Double Time vs. Time and a Half</h3>
+    <p>
+      Both are forms of premium pay for overtime, but they serve different purposes:
+    </p>
+    <ul>
+      <li><strong>Time and a Half (1.5x):</strong> Federally required after 40 hours/week. Standard overtime rate.</li>
+      <li><strong>Double Time (2x):</strong> Generally only required by some state laws or union contracts. Reserved for extreme overtime, holidays, or undesirable shifts.</li>
+    </ul>
+    <p>
+      For example, if you work 14 hours in California at $20/hour, the first 8 hours are regular ($160), hours 9–12 are
+      time and a half ($120), and hours 13–14 are double time ($80) — for a total of $360 for that day.
+    </p>
+
+    <h3>Common Double Time Scenarios</h3>
+    <p><strong>Holiday work:</strong> Many companies pay 2x for hours worked on Thanksgiving, Christmas Day, New Year's Day, and Independence Day. This is voluntary unless required by contract.</p>
+    <p><strong>Emergency call-outs:</strong> Some union contracts pay 2x when employees are called in unexpectedly during off-hours.</p>
+    <p><strong>Extended shifts:</strong> Construction and manufacturing workers may receive 2x for hours worked beyond 12 in a single shift.</p>
+    <p><strong>Sunday work:</strong> Some retail union contracts in Massachusetts and other states require Sunday premium pay.</p>
+
+    <h3>Double Time and Taxes</h3>
+    <p>
+      Double time pay is taxed exactly the same as regular pay. It's subject to federal income tax, Social Security,
+      Medicare, and any applicable state and local taxes. Receiving double time will not push you into a permanently
+      higher tax bracket — only the actual extra income is taxed at your marginal rate.
+    </p>
+
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <h4>Is double time required by federal law?</h4>
+      <p>No. The Fair Labor Standards Act (FLSA) only requires 1.5x for hours over 40 per week. Double time is only required by certain state laws or contracts.</p>
+
+      <h4>How do I know if I should get double time?</h4>
+      <p>Check your employee handbook, union contract, or state labor law. If you live in California, double time may apply automatically based on your daily hours.</p>
+
+      <h4>Does double time apply to salaried employees?</h4>
+      <p>Only if they're classified as non-exempt. Most salaried employees are exempt and receive no overtime of any kind, including double time.</p>
+
+      <h4>Can my employer pay double time instead of time and a half?</h4>
+      <p>Yes — paying more than the legal minimum is always allowed. Some employers offer double time as a recruiting or retention incentive.</p>
+    </div>
+
+    <p style="margin-top:24px">
+      <strong>Related calculators:</strong>
+      <a href="../">Main overtime calculator</a> ·
+      <a href="../california-overtime-calculator/">California rules</a> ·
+      <a href="../holiday-pay-calculator/">Holiday pay</a>
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Time and a Half Calculator. Estimates only — not legal or tax advice.</p>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

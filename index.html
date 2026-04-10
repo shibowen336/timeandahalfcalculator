@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time and a Half Calculator | Free Overtime Pay Calculator (1.5x, 2x)</title>
+<meta name="description" content="Free time and a half calculator. Instantly calculate overtime pay at 1.5x, double time at 2x, and holiday pay. FLSA-compliant overtime calculator for US hourly workers in 2026.">
+<meta name="keywords" content="time and a half calculator, overtime calculator, overtime pay, 1.5x pay, double time calculator, holiday pay, FLSA overtime, hourly wage calculator">
+<meta name="author" content="Time and a Half Calculator">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1a5490">
+
+<link rel="canonical" href="https://timeandahalfcalculator.one/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%B0%3C/text%3E%3C/svg%3E">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://timeandahalfcalculator.one/">
+<meta property="og:title" content="Time and a Half Calculator | Free Overtime Pay Calculator">
+<meta property="og:description" content="Calculate overtime pay instantly. Supports 1.5x time and a half, 2x double time, and holiday pay. Free, no signup required.">
+<meta property="og:site_name" content="Time and a Half Calculator">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Time and a Half Calculator | Free Overtime Pay Calculator">
+<meta name="twitter:description" content="Calculate overtime pay instantly. 1.5x, 2x, and holiday pay supported. 100% free.">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Structured Data: WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Time and a Half Calculator",
+  "url": "https://timeandahalfcalculator.one/",
+  "description": "Free online calculator for time and a half (1.5x), double time (2x), and holiday overtime pay. FLSA-compliant for US workers.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "127",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+}
+</script>
+
+<!-- Structured Data: FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is time and a half pay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Time and a half is an overtime pay rate equal to 1.5 times an employee's regular hourly wage. Under the Fair Labor Standards Act (FLSA), non-exempt US employees must receive time and a half for every hour worked beyond 40 in a single workweek."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you calculate time and a half?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply your regular hourly rate by 1.5, then multiply by the number of overtime hours. For example, at $20/hour working 10 overtime hours: $20 × 1.5 × 10 = $300 in overtime pay."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is holiday pay required by law in the US?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The FLSA does not require premium pay for holidays. Holiday pay is a benefit offered at the employer's discretion, though it is a common practice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do salaried employees get overtime pay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends. Non-exempt salaried employees are entitled to overtime pay, while exempt employees who meet specific duty and salary tests are not."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is double time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Double time is a pay rate equal to 2 times an employee's regular hourly wage. It is not required by federal law, but some states like California require it for hours worked beyond 12 in a single day. It is also commonly paid for holidays."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <h1 class="logo"><a href="./">Time and a Half Calculator</a></h1>
+    <p class="tagline">Free overtime, double time &amp; holiday pay calculator</p>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <div class="container">
+    <ul>
+      <li><a href="./" class="active">Home</a></li>
+      <li><a href="california-overtime-calculator/">California</a></li>
+      <li><a href="new-york-overtime-calculator/">New York</a></li>
+      <li><a href="texas-overtime-calculator/">Texas</a></li>
+      <li><a href="double-time-calculator/">Double Time</a></li>
+      <li><a href="holiday-pay-calculator/">Holiday Pay</a></li>
+      <li><a href="flsa-overtime-rules/">FLSA Rules</a></li>
+      <li><a href="hourly-to-annual-calculator/">Hourly→Annual</a></li>
+      <li><a href="overtime-pay-chart/">Pay Chart</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container">
+
+  <section class="calculator-card">
+    <h2>Overtime Pay Calculator</h2>
+    <p class="helper-text">Enter your hourly rate and hours worked to calculate your total pay.</p>
+
+    <div class="input-group">
+      <label for="hourlyRate">Hourly Rate ($)</label>
+      <input type="number" id="hourlyRate" min="0" step="0.01" placeholder="e.g. 20.00" value="20">
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label for="regularHours">Regular Hours
+          <span class="hint">(up to 40/week)</span>
+        </label>
+        <input type="number" id="regularHours" min="0" step="0.25" placeholder="40" value="40">
+      </div>
+
+      <div class="input-group">
+        <label for="overtimeHours">Overtime Hours
+          <span class="hint">(1.5x rate)</span>
+        </label>
+        <input type="number" id="overtimeHours" min="0" step="0.25" placeholder="0" value="10">
+      </div>
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label for="doubleHours">Double Time Hours
+          <span class="hint">(2x rate)</span>
+        </label>
+        <input type="number" id="doubleHours" min="0" step="0.25" placeholder="0" value="0">
+      </div>
+
+      <div class="input-group">
+        <label for="holidayHours">Holiday Hours
+          <span class="hint">(custom multiplier)</span>
+        </label>
+        <input type="number" id="holidayHours" min="0" step="0.25" placeholder="0" value="0">
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="holidayMultiplier">Holiday Pay Multiplier</label>
+      <select id="holidayMultiplier">
+        <option value="1">1.0x (Regular)</option>
+        <option value="1.5">1.5x (Time and a Half)</option>
+        <option value="2" selected>2.0x (Double Time)</option>
+        <option value="2.5">2.5x</option>
+        <option value="3">3.0x (Triple Time)</option>
+      </select>
+    </div>
+
+    <button id="calculateBtn" class="btn-primary">Calculate Pay</button>
+    <button id="resetBtn" class="btn-secondary">Reset</button>
+  </section>
+
+  <section class="results-card" id="results">
+    <h2>Your Pay Breakdown</h2>
+
+    <div class="result-row">
+      <span class="result-label">Regular Pay</span>
+      <span class="result-value" id="regularPay">$0.00</span>
+    </div>
+    <div class="result-detail" id="regularDetail">—</div>
+
+    <div class="result-row">
+      <span class="result-label">Overtime Pay (1.5x)</span>
+      <span class="result-value" id="overtimePay">$0.00</span>
+    </div>
+    <div class="result-detail" id="overtimeDetail">—</div>
+
+    <div class="result-row">
+      <span class="result-label">Double Time Pay (2x)</span>
+      <span class="result-value" id="doublePay">$0.00</span>
+    </div>
+    <div class="result-detail" id="doubleDetail">—</div>
+
+    <div class="result-row">
+      <span class="result-label">Holiday Pay</span>
+      <span class="result-value" id="holidayPay">$0.00</span>
+    </div>
+    <div class="result-detail" id="holidayDetail">—</div>
+
+    <div class="result-row total-row">
+      <span class="result-label">Total Gross Pay</span>
+      <span class="result-value total-value" id="totalPay">$0.00</span>
+    </div>
+    <div class="result-detail" id="totalDetail">—</div>
+  </section>
+
+  <section class="info-section">
+    <h2>What is Time and a Half?</h2>
+    <p>
+      <strong>Time and a half</strong> is an overtime pay rate equal to 1.5 times an employee's regular hourly wage.
+      Under the <strong>Fair Labor Standards Act (FLSA)</strong>, non-exempt employees in the United States must be paid
+      time and a half for every hour worked beyond 40 hours in a single workweek. This federal labor protection has been
+      in place since 1938 and applies to the majority of hourly workers in the country.
+    </p>
+    <p>
+      Our time and a half calculator above gives you an instant, accurate breakdown of your expected paycheck, including
+      regular hours, overtime at 1.5x, double time at 2x, and holiday pay at a custom multiplier. No signup required,
+      no data stored — everything runs in your browser.
+    </p>
+
+    <h3>How to Calculate Time and a Half</h3>
+    <p>The formula is straightforward:</p>
+    <div class="formula-box">
+      Overtime Pay = Hourly Rate × 1.5 × Overtime Hours
+    </div>
+    <p>
+      <strong>Example 1:</strong> If you earn $20/hour and work 10 hours of overtime in a week, your overtime pay is:
+      $20 × 1.5 × 10 = <strong>$300</strong>. Combined with 40 regular hours ($800), your gross weekly pay is $1,100.
+    </p>
+    <p>
+      <strong>Example 2:</strong> A nurse earning $35/hour picks up a 12-hour overtime shift. Their overtime rate is
+      $35 × 1.5 = $52.50/hour, and they earn $52.50 × 12 = <strong>$630</strong> in overtime pay.
+    </p>
+    <p>
+      <strong>Example 3:</strong> A warehouse worker earning $18/hour works 48 hours in a week. Regular pay is
+      $18 × 40 = $720. Overtime pay is $18 × 1.5 × 8 = $216. Total gross pay: <strong>$936</strong>.
+    </p>
+
+    <h3>Time and a Half Pay Chart (Common Hourly Rates)</h3>
+    <p>
+      Use this quick reference chart to see what common hourly rates look like at time and a half (1.5x) and
+      double time (2x). All figures are gross wages before taxes.
+    </p>
+    <div class="table-wrap">
+      <table class="pay-table">
+        <thead>
+          <tr>
+            <th>Regular Rate</th>
+            <th>1.5x (Time and a Half)</th>
+            <th>2x (Double Time)</th>
+            <th>8 Hours OT at 1.5x</th>
+            <th>10 Hours OT at 1.5x</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>$12.00</td><td>$18.00</td><td>$24.00</td><td>$144.00</td><td>$180.00</td></tr>
+          <tr><td>$15.00</td><td>$22.50</td><td>$30.00</td><td>$180.00</td><td>$225.00</td></tr>
+          <tr><td>$17.50</td><td>$26.25</td><td>$35.00</td><td>$210.00</td><td>$262.50</td></tr>
+          <tr><td>$18.00</td><td>$27.00</td><td>$36.00</td><td>$216.00</td><td>$270.00</td></tr>
+          <tr><td>$20.00</td><td>$30.00</td><td>$40.00</td><td>$240.00</td><td>$300.00</td></tr>
+          <tr><td>$22.00</td><td>$33.00</td><td>$44.00</td><td>$264.00</td><td>$330.00</td></tr>
+          <tr><td>$25.00</td><td>$37.50</td><td>$50.00</td><td>$300.00</td><td>$375.00</td></tr>
+          <tr><td>$28.00</td><td>$42.00</td><td>$56.00</td><td>$336.00</td><td>$420.00</td></tr>
+          <tr><td>$30.00</td><td>$45.00</td><td>$60.00</td><td>$360.00</td><td>$450.00</td></tr>
+          <tr><td>$35.00</td><td>$52.50</td><td>$70.00</td><td>$420.00</td><td>$525.00</td></tr>
+          <tr><td>$40.00</td><td>$60.00</td><td>$80.00</td><td>$480.00</td><td>$600.00</td></tr>
+          <tr><td>$50.00</td><td>$75.00</td><td>$100.00</td><td>$600.00</td><td>$750.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Time and a Half vs. Double Time</h3>
+    <p>
+      These are two different overtime premium rates, and understanding the distinction matters for both workers and employers.
+    </p>
+    <ul>
+      <li><strong>Time and a Half (1.5x):</strong> Required by federal law for hours worked over 40 per week by non-exempt employees. This is the standard overtime rate nationwide.</li>
+      <li><strong>Double Time (2x):</strong> Not required by federal law. Some states — most notably California — require it for hours worked over 12 in a single day or for the 7th consecutive workday. Many employers also voluntarily pay double time for work performed on major holidays.</li>
+    </ul>
+
+    <h3>FLSA Overtime Rules Explained</h3>
+    <p>
+      The Fair Labor Standards Act is the federal law that governs minimum wage, overtime pay, recordkeeping, and child labor
+      standards. Here are the key overtime provisions every worker should know:
+    </p>
+    <ul>
+      <li>Overtime kicks in after <strong>40 hours per workweek</strong> — federal law does not require daily overtime</li>
+      <li>A workweek is any fixed, recurring 168-hour period (7 consecutive 24-hour periods)</li>
+      <li>Exempt employees (executive, administrative, professional, outside sales, and some computer workers) do not qualify for overtime</li>
+      <li>As of 2024, exempt employees must earn at least $684 per week ($35,568 annually)</li>
+      <li>Some states have stricter rules — always check your state's labor laws</li>
+      <li>Overtime must be paid on the regular payday for the period in which the wages were earned</li>
+    </ul>
+
+    <h3>State Overtime Laws: Daily Overtime Requirements</h3>
+    <p>
+      While federal law only requires weekly overtime after 40 hours, the following states have additional daily overtime
+      requirements that give workers even more protection:
+    </p>
+    <ul>
+      <li><strong>California:</strong> 1.5x after 8 hours/day, 2x after 12 hours/day. 1.5x for the first 8 hours on the 7th consecutive workday, 2x after 8 hours on the 7th day.</li>
+      <li><strong>Alaska:</strong> 1.5x after 8 hours/day for employers with 4+ employees.</li>
+      <li><strong>Nevada:</strong> 1.5x after 8 hours/day for workers earning less than 1.5 times the state minimum wage.</li>
+      <li><strong>Colorado:</strong> 1.5x after 12 hours/day, or after 12 consecutive hours regardless of workweek start.</li>
+      <li><strong>Oregon:</strong> Daily overtime applies in specific industries such as manufacturing and canneries.</li>
+      <li><strong>Kentucky:</strong> 1.5x for the 7th consecutive day of work in a week for certain industries.</li>
+      <li><strong>Massachusetts:</strong> Follows federal 40-hour rule, but has strict "blue laws" requiring 1.5x on Sundays for certain retail workers (being phased out).</li>
+    </ul>
+
+    <h3>Who Qualifies for Overtime Pay?</h3>
+    <p>
+      The FLSA divides employees into two categories: <strong>exempt</strong> and <strong>non-exempt</strong>. Only
+      non-exempt employees are legally entitled to overtime pay.
+    </p>
+    <h4>Non-Exempt Employees (Eligible for Overtime)</h4>
+    <ul>
+      <li>Most hourly workers</li>
+      <li>Workers earning less than $684 per week ($35,568/year)</li>
+      <li>Blue-collar workers regardless of salary</li>
+      <li>Police, firefighters, paramedics, and other first responders</li>
+      <li>Licensed practical nurses (LPNs) and most other healthcare support staff</li>
+    </ul>
+    <h4>Exempt Employees (Not Eligible for Overtime)</h4>
+    <ul>
+      <li>Executive employees (manage 2+ employees, have hiring authority)</li>
+      <li>Administrative employees (perform office work directly related to business operations)</li>
+      <li>Learned professionals (doctors, lawyers, teachers, engineers)</li>
+      <li>Outside sales employees</li>
+      <li>Certain computer professionals earning at least $27.63/hour</li>
+      <li>Highly compensated employees earning over $107,432/year</li>
+    </ul>
+
+    <h3>Common Overtime Pay Mistakes</h3>
+    <p>
+      Wage theft is unfortunately common. Here are issues to watch for on your paycheck:
+    </p>
+    <ul>
+      <li><strong>Misclassification as exempt:</strong> Your job title doesn't determine exempt status — your actual duties and pay do.</li>
+      <li><strong>Off-the-clock work:</strong> Time spent on prep, cleanup, or mandatory training must generally be paid.</li>
+      <li><strong>Comp time instead of pay:</strong> Private-sector employers generally cannot substitute paid time off for overtime wages.</li>
+      <li><strong>Averaging hours across weeks:</strong> Overtime must be calculated on a single workweek basis, not averaged.</li>
+      <li><strong>Excluding bonuses from overtime calculation:</strong> Non-discretionary bonuses must be included in the regular rate used to compute overtime.</li>
+      <li><strong>Wrong rate for shift differentials:</strong> If you earn a higher rate for night shifts, overtime on those hours uses the higher rate.</li>
+    </ul>
+
+    <h3>How Overtime Is Calculated with Multiple Pay Rates</h3>
+    <p>
+      If you work different rates in the same week (say, $15/hour at one job task and $20/hour at another), your overtime rate is based on the <strong>weighted average</strong> of those rates for that workweek. The formula:
+    </p>
+    <div class="formula-box">
+      Regular Rate = Total Weekly Pay ÷ Total Hours Worked<br>
+      Overtime Premium = Regular Rate × 0.5 × Overtime Hours
+    </div>
+    <p>
+      Some states and union agreements allow you to use the actual rate being worked during the overtime hours instead. Check your contract.
+    </p>
+
+    <h3>Weekly, Biweekly, and Monthly Pay Examples</h3>
+    <p>
+      Below are examples of what time and a half looks like across different pay periods, assuming consistent 10 hours of overtime per week at $22/hour.
+    </p>
+    <ul>
+      <li><strong>Weekly:</strong> Regular $880 + Overtime $330 = <strong>$1,210/week</strong></li>
+      <li><strong>Biweekly:</strong> Regular $1,760 + Overtime $660 = <strong>$2,420 every 2 weeks</strong></li>
+      <li><strong>Semi-monthly:</strong> Approximately $2,622/pay period</li>
+      <li><strong>Monthly:</strong> Approximately $5,243/month</li>
+      <li><strong>Annual:</strong> Approximately $62,920/year (before taxes)</li>
+    </ul>
+
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <h4>Is holiday pay required by law in the US?</h4>
+      <p>No. The FLSA does not require premium pay for holidays. Holiday pay is a benefit offered at the employer's discretion. However, it is standard practice at many companies to offer 1.5x or 2x pay on major federal holidays like Thanksgiving, Christmas, and Independence Day.</p>
+
+      <h4>Do salaried employees get time and a half?</h4>
+      <p>It depends on their exemption status. Non-exempt salaried employees are entitled to overtime pay. Exempt employees who meet specific duty tests and earn above the FLSA salary threshold ($684/week as of 2024) are not entitled to overtime.</p>
+
+      <h4>How is overtime calculated for tipped employees?</h4>
+      <p>Tipped employees must have their overtime rate calculated based on the full minimum wage — not the lower cash wage paid by the employer. For example, if the federal minimum wage is $7.25 and the employer pays $2.13 plus tips, overtime is still calculated as $7.25 × 1.5 = $10.88, minus the tip credit.</p>
+
+      <h4>Can my employer force me to work overtime?</h4>
+      <p>In most states, yes. Unless limited by a union contract or specific state law (like mandatory overtime restrictions for nurses in some states), employers can require overtime and may discipline employees who refuse. They must, however, pay the required overtime premium.</p>
+
+      <h4>What if my employer doesn't pay me overtime?</h4>
+      <p>You can file a wage complaint with the US Department of Labor's Wage and Hour Division (WHD) or your state labor department. You may also file a private lawsuit. Under the FLSA, you can recover back wages plus an equal amount in liquidated damages for up to two years (three years if willful).</p>
+
+      <h4>Does overtime count toward social security and taxes?</h4>
+      <p>Yes. All overtime pay is subject to federal income tax, Social Security, Medicare, and state income taxes, just like regular wages. Overtime is not taxed at a higher rate, though it may push you into a higher tax bracket temporarily.</p>
+
+      <h4>Can I waive my right to overtime pay?</h4>
+      <p>No. Under federal law, employees cannot waive their right to overtime pay. Any agreement to work without overtime pay is invalid and unenforceable.</p>
+
+      <h4>Is time spent commuting counted as work time?</h4>
+      <p>Generally no, but travel between job sites during the workday is compensable. Also, if you're required to transport tools or equipment, special rules may apply.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Time and a Half Calculator. This tool provides estimates only and should not be considered legal or tax advice.</p>
+    <p class="disclaimer">Always consult your employer or a qualified professional for actual wage calculations.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

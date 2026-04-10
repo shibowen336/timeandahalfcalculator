@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>California Overtime Calculator | Daily &amp; Weekly OT Pay (8/12 Hour Rules)</title>
+<meta name="description" content="Free California overtime calculator. Compute daily 1.5x after 8 hours, 2x after 12 hours, plus 7th-day overtime rules. CA Labor Code compliant for 2026.">
+<meta name="keywords" content="california overtime calculator, california overtime laws, daily overtime california, california 8 hour rule, california 12 hour rule, 7th day overtime">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1a5490">
+
+<link rel="canonical" href="https://timeandahalfcalculator.one/california-overtime-calculator/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%B0%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://timeandahalfcalculator.one/california-overtime-calculator/">
+<meta property="og:title" content="California Overtime Calculator | Daily &amp; Weekly OT Pay">
+<meta property="og:description" content="Calculate California overtime: 1.5x after 8 hours/day, 2x after 12 hours/day, 7th-day rules. Free CA Labor Code compliant tool.">
+
+<link rel="stylesheet" href="../style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "California Overtime Calculator",
+  "url": "https://timeandahalfcalculator.one/california-overtime-calculator/",
+  "description": "Free California overtime calculator with daily 8/12 hour rules and 7th-day overtime support.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://timeandahalfcalculator.one/"},
+    {"@type": "ListItem", "position": 2, "name": "California Overtime Calculator", "item": "https://timeandahalfcalculator.one/california-overtime-calculator/"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <h1 class="logo"><a href="../">Time and a Half Calculator</a></h1>
+    <p class="tagline">Free overtime, double time &amp; holiday pay calculator</p>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <div class="container">
+    <ul>
+      <li><a href="../">Home</a></li>
+      <li><a href="../california-overtime-calculator/" class="active">California</a></li>
+      <li><a href="../new-york-overtime-calculator/">New York</a></li>
+      <li><a href="../texas-overtime-calculator/">Texas</a></li>
+      <li><a href="../double-time-calculator/">Double Time</a></li>
+      <li><a href="../holiday-pay-calculator/">Holiday Pay</a></li>
+      <li><a href="../flsa-overtime-rules/">FLSA Rules</a></li>
+      <li><a href="../hourly-to-annual-calculator/">Hourly→Annual</a></li>
+      <li><a href="../overtime-pay-chart/">Pay Chart</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container">
+
+  <section class="info-section" style="margin-top:0">
+    <h1 style="font-size:28px;margin-bottom:12px">California Overtime Calculator</h1>
+    <p>
+      California has the strictest overtime laws in the United States. Unlike federal FLSA rules that only require
+      overtime after 40 hours per week, the California Labor Code mandates <strong>daily overtime</strong> after 8 hours,
+      <strong>double time</strong> after 12 hours, and special rules for the 7th consecutive workday. This calculator
+      helps you determine exactly what you should earn under CA law.
+    </p>
+  </section>
+
+  <section class="calculator-card">
+    <h2>California Overtime Pay Calculator</h2>
+    <p class="helper-text">Enter your hours worked. California's daily 8/12-hour rules and 7th-day rules apply.</p>
+
+    <div class="input-group">
+      <label for="hourlyRate">Hourly Rate ($)</label>
+      <input type="number" id="hourlyRate" min="0" step="0.01" placeholder="e.g. 25.00" value="25">
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label for="regularHours">Regular Hours
+          <span class="hint">(first 8 hrs/day, up to 40/week)</span>
+        </label>
+        <input type="number" id="regularHours" min="0" step="0.25" value="40">
+      </div>
+
+      <div class="input-group">
+        <label for="overtimeHours">Overtime Hours
+          <span class="hint">(1.5x: hrs 8-12/day or 41+ /week)</span>
+        </label>
+        <input type="number" id="overtimeHours" min="0" step="0.25" value="8">
+      </div>
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label for="doubleHours">Double Time Hours
+          <span class="hint">(2x: over 12 hrs/day)</span>
+        </label>
+        <input type="number" id="doubleHours" min="0" step="0.25" value="2">
+      </div>
+
+      <div class="input-group">
+        <label for="holidayHours">7th Day Hours
+          <span class="hint">(use holiday field)</span>
+        </label>
+        <input type="number" id="holidayHours" min="0" step="0.25" value="0">
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="holidayMultiplier">7th Day / Holiday Multiplier</label>
+      <select id="holidayMultiplier">
+        <option value="1.5" selected>1.5x (7th day, first 8 hrs)</option>
+        <option value="2">2.0x (7th day, hrs 8+)</option>
+      </select>
+    </div>
+
+    <button id="calculateBtn" class="btn-primary">Calculate Pay</button>
+    <button id="resetBtn" class="btn-secondary">Reset</button>
+  </section>
+
+  <section class="results-card" id="results">
+    <h2>Your California Pay Breakdown</h2>
+    <div class="result-row"><span class="result-label">Regular Pay</span><span class="result-value" id="regularPay">$0.00</span></div>
+    <div class="result-detail" id="regularDetail">—</div>
+    <div class="result-row"><span class="result-label">Overtime Pay (1.5x)</span><span class="result-value" id="overtimePay">$0.00</span></div>
+    <div class="result-detail" id="overtimeDetail">—</div>
+    <div class="result-row"><span class="result-label">Double Time Pay (2x)</span><span class="result-value" id="doublePay">$0.00</span></div>
+    <div class="result-detail" id="doubleDetail">—</div>
+    <div class="result-row"><span class="result-label">7th Day Pay</span><span class="result-value" id="holidayPay">$0.00</span></div>
+    <div class="result-detail" id="holidayDetail">—</div>
+    <div class="result-row total-row"><span class="result-label">Total Gross Pay</span><span class="result-value total-value" id="totalPay">$0.00</span></div>
+    <div class="result-detail" id="totalDetail">—</div>
+  </section>
+
+  <section class="info-section">
+    <h2>California Overtime Laws Explained</h2>
+    <p>
+      California Labor Code Section 510 establishes some of the most worker-friendly overtime rules in the country.
+      For non-exempt employees, the following rules apply on top of federal protections:
+    </p>
+
+    <h3>The Daily 8-Hour Rule</h3>
+    <p>
+      In California, any hours worked beyond <strong>8 in a single workday</strong> must be paid at 1.5 times the
+      regular rate. This is different from federal law, which only requires overtime after 40 hours in a week. So
+      even if you only work 32 hours total in a week but one of those days was 10 hours long, you still earn
+      2 hours of overtime pay for that long day.
+    </p>
+
+    <h3>The Daily 12-Hour Rule (Double Time)</h3>
+    <p>
+      Any hours worked beyond <strong>12 in a single workday</strong> must be paid at 2 times the regular rate
+      (double time). This is one of the few cases where double time is mandated by state law in the US.
+    </p>
+
+    <h3>The 7th Day Rule</h3>
+    <p>
+      If you work 7 consecutive days in the same workweek, special rules kick in for the 7th day:
+    </p>
+    <ul>
+      <li>The <strong>first 8 hours</strong> on the 7th day are paid at 1.5x</li>
+      <li>Hours <strong>beyond 8 hours</strong> on the 7th day are paid at 2x (double time)</li>
+      <li>This applies regardless of how many hours you worked earlier in the week</li>
+    </ul>
+
+    <h3>The Weekly 40-Hour Rule</h3>
+    <p>
+      California also follows the federal weekly overtime rule. Any hours over 40 in a workweek must be paid at
+      1.5x — but only if those hours weren't already counted as daily overtime (you can't double-dip).
+    </p>
+
+    <h3>California Overtime Examples</h3>
+    <p><strong>Example 1: Long single shift.</strong> Maria works 14 hours in one day at $25/hour:</p>
+    <ul>
+      <li>First 8 hours: $25 × 8 = $200 (regular)</li>
+      <li>Hours 8–12 (4 hours): $25 × 1.5 × 4 = $150 (time and a half)</li>
+      <li>Hours 12–14 (2 hours): $25 × 2 × 2 = $100 (double time)</li>
+      <li><strong>Total for the day: $450</strong></li>
+    </ul>
+
+    <p><strong>Example 2: 7-day workweek.</strong> Carlos works 8 hours every day for 7 days at $20/hour:</p>
+    <ul>
+      <li>Days 1–6: $20 × 8 × 6 = $960 (regular)</li>
+      <li>Day 7 (8 hours): $20 × 1.5 × 8 = $240 (7th day premium)</li>
+      <li><strong>Total: $1,200</strong> — even though no day exceeded 8 hours</li>
+    </ul>
+
+    <p><strong>Example 3: Mixed week.</strong> Aisha works 10, 8, 8, 8, 8 hours on Mon–Fri at $30/hour:</p>
+    <ul>
+      <li>Total hours: 42</li>
+      <li>Regular pay: $30 × 40 = $1,200</li>
+      <li>Daily overtime on Monday (2 hours over 8): $30 × 1.5 × 2 = $90</li>
+      <li><strong>Total: $1,290</strong></li>
+    </ul>
+
+    <h3>Who Qualifies for California Overtime?</h3>
+    <p>
+      California's overtime laws cover most non-exempt employees, but there are exceptions. To be exempt under
+      California law (and not eligible for overtime), an employee must generally:
+    </p>
+    <ul>
+      <li>Earn at least <strong>twice the state minimum wage</strong> for full-time work (about $66,560/year as of 2024)</li>
+      <li>Spend more than half their time on exempt duties (executive, administrative, or professional)</li>
+      <li>Regularly exercise discretion and independent judgment</li>
+    </ul>
+    <p>
+      California's exempt salary threshold is significantly higher than the federal threshold ($35,568), meaning many
+      workers who are exempt under federal law are still entitled to overtime under California law.
+    </p>
+
+    <h3>Industry-Specific Overtime Rules</h3>
+    <p>
+      California has 17 different "Wage Orders" that apply to different industries, and some have unique overtime rules:
+    </p>
+    <ul>
+      <li><strong>Healthcare workers:</strong> May agree to 12-hour shifts (Alternative Workweek) without daily OT until hour 12</li>
+      <li><strong>Agricultural workers:</strong> As of 2022, fully covered by daily 8-hour OT rules (phased in)</li>
+      <li><strong>Personal attendants:</strong> Domestic workers in private homes have specific rules</li>
+      <li><strong>Live-in employees:</strong> Different OT calculations apply</li>
+      <li><strong>Commissioned salespeople:</strong> May be exempt if more than 50% of pay is commission and base exceeds 1.5x minimum wage</li>
+    </ul>
+
+    <h3>California Meal and Rest Breaks</h3>
+    <p>
+      Although not strictly overtime, California's break requirements affect total pay. If your employer fails to
+      provide required breaks, they owe you 1 extra hour of pay at your regular rate per missed break:
+    </p>
+    <ul>
+      <li>30-minute unpaid meal break required by the 5th hour of work</li>
+      <li>Second meal break required by the 10th hour</li>
+      <li>10-minute paid rest break for every 4 hours worked</li>
+    </ul>
+
+    <h3>How to File a Wage Claim in California</h3>
+    <p>
+      If your California employer isn't paying overtime correctly, you can file a wage claim with the
+      <strong>California Labor Commissioner's Office</strong> (Division of Labor Standards Enforcement, or DLSE).
+      You can recover unpaid wages plus interest, penalties, and in some cases attorney's fees. The statute of limitations
+      is generally 3 years for unpaid overtime under California law (longer than the federal 2-year limit).
+    </p>
+
+    <h3>FAQ: California Overtime</h3>
+    <div class="faq">
+      <h4>Does California overtime stack with federal overtime?</h4>
+      <p>No. You get whichever rule produces the higher pay for the workweek. You don't get paid twice for the same hours.</p>
+
+      <h4>Can my employer make me work 12 hours a day in California?</h4>
+      <p>Yes, in most cases — but they must pay 1.5x for hours 9-12 and 2x for any hours beyond 12. Some industries have additional limits (e.g., healthcare).</p>
+
+      <h4>What if I'm paid by the day or piece rate?</h4>
+      <p>California still requires overtime calculation. Your "regular rate" is total weekly pay divided by total hours, and overtime is calculated on top.</p>
+
+      <h4>Are makeup hours (Alternative Workweek) overtime exempt?</h4>
+      <p>If your worksite has voted on and adopted an Alternative Workweek Schedule (AWS), employees can work up to 10 hours per day at straight time without daily overtime. Strict procedural requirements apply.</p>
+    </div>
+
+    <p style="margin-top:24px">
+      <strong>Need other calculators?</strong> Try our
+      <a href="../">main time and a half calculator</a>,
+      <a href="../double-time-calculator/">double time calculator</a>, or
+      <a href="../overtime-pay-chart/">overtime pay chart</a>.
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Time and a Half Calculator. This tool provides estimates only and should not be considered legal or tax advice.</p>
+    <p class="disclaimer">Always consult California's DLSE or a qualified labor attorney for actual wage matters.</p>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

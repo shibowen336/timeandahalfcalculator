@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Overtime Calculator | TX Overtime Laws &amp; Time and a Half</title>
+<meta name="description" content="Free Texas overtime calculator. Texas follows federal FLSA rules — learn about the 40-hour rule, exempt status, and how to calculate your TX overtime pay for 2026.">
+<meta name="keywords" content="texas overtime calculator, texas overtime laws, TX labor code, texas time and a half, texas exempt employee, TWC overtime">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1a5490">
+
+<link rel="canonical" href="https://timeandahalfcalculator.one/texas-overtime-calculator/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%B0%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://timeandahalfcalculator.one/texas-overtime-calculator/">
+<meta property="og:title" content="Texas Overtime Calculator | TX Time and a Half Calculator">
+<meta property="og:description" content="Calculate Texas overtime pay under the federal FLSA rules that Texas follows.">
+
+<link rel="stylesheet" href="../style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Texas Overtime Calculator",
+  "url": "https://timeandahalfcalculator.one/texas-overtime-calculator/",
+  "description": "Free Texas overtime calculator following federal FLSA standards.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <h1 class="logo"><a href="../">Time and a Half Calculator</a></h1>
+    <p class="tagline">Free overtime, double time &amp; holiday pay calculator</p>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <div class="container">
+    <ul>
+      <li><a href="../">Home</a></li>
+      <li><a href="../california-overtime-calculator/">California</a></li>
+      <li><a href="../new-york-overtime-calculator/">New York</a></li>
+      <li><a href="../texas-overtime-calculator/" class="active">Texas</a></li>
+      <li><a href="../double-time-calculator/">Double Time</a></li>
+      <li><a href="../holiday-pay-calculator/">Holiday Pay</a></li>
+      <li><a href="../flsa-overtime-rules/">FLSA Rules</a></li>
+      <li><a href="../hourly-to-annual-calculator/">Hourly→Annual</a></li>
+      <li><a href="../overtime-pay-chart/">Pay Chart</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container">
+
+  <section class="info-section" style="margin-top:0">
+    <h1 style="font-size:28px;margin-bottom:12px">Texas Overtime Calculator</h1>
+    <p>
+      Texas does not have its own state overtime law. Instead, Texas follows the federal
+      <strong>Fair Labor Standards Act (FLSA)</strong>, which requires 1.5 times the regular rate for non-exempt
+      employees working more than 40 hours in a workweek. This means Texas workers have fewer protections than
+      workers in California or New York, but the federal rules still apply. This calculator helps you determine
+      your Texas overtime pay.
+    </p>
+  </section>
+
+  <section class="calculator-card">
+    <h2>Texas Overtime Pay Calculator</h2>
+    <p class="helper-text">Texas follows federal FLSA — 1.5x after 40 hours per workweek.</p>
+
+    <div class="input-group">
+      <label for="hourlyRate">Hourly Rate ($)</label>
+      <input type="number" id="hourlyRate" min="0" step="0.01" value="18">
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label for="regularHours">Regular Hours <span class="hint">(up to 40/week)</span></label>
+        <input type="number" id="regularHours" min="0" step="0.25" value="40">
+      </div>
+      <div class="input-group">
+        <label for="overtimeHours">Overtime Hours <span class="hint">(1.5x rate)</span></label>
+        <input type="number" id="overtimeHours" min="0" step="0.25" value="12">
+      </div>
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label for="doubleHours">Double Time Hours <span class="hint">(if contract)</span></label>
+        <input type="number" id="doubleHours" min="0" step="0.25" value="0">
+      </div>
+      <div class="input-group">
+        <label for="holidayHours">Holiday Hours</label>
+        <input type="number" id="holidayHours" min="0" step="0.25" value="0">
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="holidayMultiplier">Holiday Pay Multiplier</label>
+      <select id="holidayMultiplier">
+        <option value="1">1.0x (Regular, TX default)</option>
+        <option value="1.5" selected>1.5x</option>
+        <option value="2">2.0x</option>
+      </select>
+    </div>
+
+    <button id="calculateBtn" class="btn-primary">Calculate Pay</button>
+    <button id="resetBtn" class="btn-secondary">Reset</button>
+  </section>
+
+  <section class="results-card" id="results">
+    <h2>Your Texas Pay Breakdown</h2>
+    <div class="result-row"><span class="result-label">Regular Pay</span><span class="result-value" id="regularPay">$0.00</span></div>
+    <div class="result-detail" id="regularDetail">—</div>
+    <div class="result-row"><span class="result-label">Overtime Pay (1.5x)</span><span class="result-value" id="overtimePay">$0.00</span></div>
+    <div class="result-detail" id="overtimeDetail">—</div>
+    <div class="result-row"><span class="result-label">Double Time Pay (2x)</span><span class="result-value" id="doublePay">$0.00</span></div>
+    <div class="result-detail" id="doubleDetail">—</div>
+    <div class="result-row"><span class="result-label">Holiday Pay</span><span class="result-value" id="holidayPay">$0.00</span></div>
+    <div class="result-detail" id="holidayDetail">—</div>
+    <div class="result-row total-row"><span class="result-label">Total Gross Pay</span><span class="result-value total-value" id="totalPay">$0.00</span></div>
+    <div class="result-detail" id="totalDetail">—</div>
+  </section>
+
+  <section class="info-section">
+    <h2>Texas Overtime Law Overview</h2>
+    <p>
+      The Texas Labor Code does not establish a state-level overtime requirement. Instead, Texas defers entirely
+      to the federal FLSA for overtime protections. This means:
+    </p>
+    <ul>
+      <li>Overtime is 1.5x the regular rate</li>
+      <li>It kicks in after <strong>40 hours per workweek</strong> — not per day</li>
+      <li>There is no daily overtime requirement in Texas</li>
+      <li>There is no double time requirement in Texas (unless in a contract)</li>
+      <li>Exempt employees must meet the federal $684/week threshold</li>
+    </ul>
+
+    <h3>Texas Minimum Wage</h3>
+    <p>
+      Texas uses the federal minimum wage of <strong>$7.25/hour</strong>. Texas has not raised its minimum wage
+      above the federal level, making it one of 20 states that stick with $7.25. Some Texas cities have attempted
+      to pass local minimum wage increases, but state law generally preempts these efforts for private employers.
+    </p>
+
+    <h3>Texas Exempt Employee Rules</h3>
+    <p>
+      Because Texas follows federal FLSA, the exempt employee rules are the federal ones. To be exempt from
+      overtime in Texas, an employee must:
+    </p>
+    <ul>
+      <li>Earn at least <strong>$684 per week</strong> ($35,568/year) — the federal threshold</li>
+      <li>Be paid on a salary basis</li>
+      <li>Have duties that qualify under executive, administrative, professional, computer, or outside sales exemptions</li>
+    </ul>
+
+    <h3>Texas Examples: Calculating Overtime</h3>
+    <p><strong>Example 1:</strong> Jake is a warehouse worker in Houston earning $18/hour. He works 52 hours in a week:</p>
+    <ul>
+      <li>Regular pay: $18 × 40 = $720</li>
+      <li>Overtime: $18 × 1.5 × 12 = $324</li>
+      <li><strong>Total: $1,044</strong></li>
+    </ul>
+
+    <p><strong>Example 2:</strong> Maria is an oil field worker in Midland earning $28/hour. She works 60 hours:</p>
+    <ul>
+      <li>Regular pay: $28 × 40 = $1,120</li>
+      <li>Overtime: $28 × 1.5 × 20 = $840</li>
+      <li><strong>Total: $1,960</strong></li>
+    </ul>
+
+    <p><strong>Example 3:</strong> Ravi works a 14-hour shift on one day in Dallas at $25/hour, then only works 20 more hours the rest of the week (total 34 hours):</p>
+    <ul>
+      <li>Regular pay: $25 × 34 = $850</li>
+      <li>No overtime — total hours are under 40</li>
+      <li>Unlike California, Texas does not require daily overtime for the 14-hour day</li>
+      <li><strong>Total: $850</strong></li>
+    </ul>
+
+    <h3>Texas Workforce Commission (TWC)</h3>
+    <p>
+      The <strong>Texas Workforce Commission</strong> handles unpaid wage complaints in Texas. If your employer fails
+      to pay overtime, you have two options:
+    </p>
+    <ul>
+      <li><strong>File with TWC:</strong> Submit a wage claim within 180 days of when the wages were due. TWC can
+        investigate and order payment.</li>
+      <li><strong>File an FLSA complaint:</strong> Contact the US Department of Labor's Wage and Hour Division for
+        federal FLSA violations. You can recover unpaid wages plus liquidated damages.</li>
+      <li><strong>Private lawsuit:</strong> You can sue in federal or Texas state court, potentially recovering
+        double damages and attorney's fees.</li>
+    </ul>
+
+    <h3>Texas Right-to-Work State</h3>
+    <p>
+      Texas is a "right to work" state, meaning employees cannot be required to join a union as a condition of
+      employment. This affects overtime indirectly — fewer Texas workers are covered by collective bargaining
+      agreements that might provide double time or other premium pay above the federal minimum.
+    </p>
+
+    <h3>Texas Public Employee Overtime</h3>
+    <p>
+      Public employees (state, county, and municipal workers) in Texas are generally covered by the FLSA, but
+      public-sector employers can offer "compensatory time off" (comp time) in lieu of overtime pay — up to
+      240 hours for most employees and 480 hours for public safety workers. Private employers in Texas cannot
+      offer comp time; they must pay cash overtime.
+    </p>
+
+    <h3>Common Texas Industries and Overtime</h3>
+    <ul>
+      <li><strong>Oil and gas:</strong> Long shifts are common. Despite high pay, many oil field workers are misclassified as exempt when they should receive overtime.</li>
+      <li><strong>Construction:</strong> Laborers are typically non-exempt and entitled to overtime.</li>
+      <li><strong>Trucking:</strong> Interstate drivers are often exempt under the Motor Carrier Act exemption.</li>
+      <li><strong>Healthcare:</strong> Nurses, techs, and aides are typically non-exempt.</li>
+      <li><strong>Tech:</strong> Software developers meeting the computer professional exemption may be exempt.</li>
+    </ul>
+
+    <h3>Texas Overtime FAQ</h3>
+    <div class="faq">
+      <h4>Does Texas have daily overtime?</h4>
+      <p>No. Texas follows federal FLSA, which only requires weekly overtime after 40 hours. You can work a 16-hour day and not receive overtime if your weekly total stays under 40.</p>
+
+      <h4>Does Texas require double time?</h4>
+      <p>No. No Texas or federal law requires double time. Your employer may offer it by policy or contract, but it's not legally required.</p>
+
+      <h4>What is the Texas overtime statute of limitations?</h4>
+      <p>TWC wage claims must be filed within 180 days. Federal FLSA claims must be filed within 2 years (3 years if willful). A private lawsuit may be available for longer periods.</p>
+
+      <h4>Can my Texas employer give me comp time instead of overtime pay?</h4>
+      <p>Only if you are a public-sector employee. Private-sector Texas employers cannot substitute comp time for cash overtime.</p>
+
+      <h4>Are salaried Texas workers entitled to overtime?</h4>
+      <p>Only if they are non-exempt. If a salaried employee earns less than $684/week or doesn't meet the duties test, they are entitled to overtime under federal law.</p>
+    </div>
+
+    <p style="margin-top:24px">
+      <strong>Related calculators:</strong>
+      <a href="../">Main calculator</a> ·
+      <a href="../california-overtime-calculator/">California rules</a> ·
+      <a href="../new-york-overtime-calculator/">New York rules</a>
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Time and a Half Calculator. Estimates only — not legal or tax advice.</p>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

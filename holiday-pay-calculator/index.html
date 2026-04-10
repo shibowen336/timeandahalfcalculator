@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holiday Pay Calculator | Free 1.5x &amp; 2x Holiday Overtime Calculator</title>
+<meta name="description" content="Free holiday pay calculator. Compute holiday overtime at 1.5x, 2x, or custom multipliers. Learn US holiday pay rules and which days qualify.">
+<meta name="keywords" content="holiday pay calculator, holiday overtime, christmas pay, thanksgiving pay, federal holiday pay, holiday pay rate">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1a5490">
+
+<link rel="canonical" href="https://timeandahalfcalculator.one/holiday-pay-calculator/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%B0%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://timeandahalfcalculator.one/holiday-pay-calculator/">
+<meta property="og:title" content="Holiday Pay Calculator | Free Holiday Overtime Calculator">
+<meta property="og:description" content="Calculate holiday pay at 1.5x, 2x, or any custom rate. Free tool for US workers.">
+
+<link rel="stylesheet" href="../style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Holiday Pay Calculator",
+  "url": "https://timeandahalfcalculator.one/holiday-pay-calculator/",
+  "description": "Free holiday pay calculator with custom multiplier support.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <h1 class="logo"><a href="../">Time and a Half Calculator</a></h1>
+    <p class="tagline">Free overtime, double time &amp; holiday pay calculator</p>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <div class="container">
+    <ul>
+      <li><a href="../">Home</a></li>
+      <li><a href="../california-overtime-calculator/">California</a></li>
+      <li><a href="../new-york-overtime-calculator/">New York</a></li>
+      <li><a href="../texas-overtime-calculator/">Texas</a></li>
+      <li><a href="../double-time-calculator/">Double Time</a></li>
+      <li><a href="../holiday-pay-calculator/" class="active">Holiday Pay</a></li>
+      <li><a href="../flsa-overtime-rules/">FLSA Rules</a></li>
+      <li><a href="../hourly-to-annual-calculator/">Hourly→Annual</a></li>
+      <li><a href="../overtime-pay-chart/">Pay Chart</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container">
+
+  <section class="info-section" style="margin-top:0">
+    <h1 style="font-size:28px;margin-bottom:12px">Holiday Pay Calculator</h1>
+    <p>
+      Working a holiday? Use this calculator to figure out exactly what you should earn. While <strong>federal law
+      does not require holiday pay</strong>, most US employers offer 1.5x or 2x rates on major holidays as a benefit
+      or to attract workers willing to give up their day off. This calculator handles any multiplier you enter.
+    </p>
+  </section>
+
+  <section class="calculator-card">
+    <h2>Holiday Pay Calculator</h2>
+    <p class="helper-text">Enter your hourly rate, holiday hours, and the multiplier your employer pays.</p>
+
+    <div class="input-group">
+      <label for="hourlyRate">Hourly Rate ($)</label>
+      <input type="number" id="hourlyRate" min="0" step="0.01" value="20">
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label for="regularHours">Regular Hours</label>
+        <input type="number" id="regularHours" min="0" step="0.25" value="32">
+      </div>
+      <div class="input-group">
+        <label for="overtimeHours">Overtime Hours (1.5x)</label>
+        <input type="number" id="overtimeHours" min="0" step="0.25" value="0">
+      </div>
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label for="doubleHours">Double Time Hours (2x)</label>
+        <input type="number" id="doubleHours" min="0" step="0.25" value="0">
+      </div>
+      <div class="input-group">
+        <label for="holidayHours">Holiday Hours
+          <span class="hint">(custom rate)</span>
+        </label>
+        <input type="number" id="holidayHours" min="0" step="0.25" value="8">
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="holidayMultiplier">Holiday Pay Multiplier</label>
+      <select id="holidayMultiplier">
+        <option value="1">1.0x (Regular pay)</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5" selected>1.5x (Time and a Half)</option>
+        <option value="2">2.0x (Double Time)</option>
+        <option value="2.5">2.5x</option>
+        <option value="3">3.0x (Triple Time)</option>
+      </select>
+    </div>
+
+    <button id="calculateBtn" class="btn-primary">Calculate Pay</button>
+    <button id="resetBtn" class="btn-secondary">Reset</button>
+  </section>
+
+  <section class="results-card" id="results">
+    <h2>Your Holiday Pay Breakdown</h2>
+    <div class="result-row"><span class="result-label">Regular Pay</span><span class="result-value" id="regularPay">$0.00</span></div>
+    <div class="result-detail" id="regularDetail">—</div>
+    <div class="result-row"><span class="result-label">Overtime (1.5x)</span><span class="result-value" id="overtimePay">$0.00</span></div>
+    <div class="result-detail" id="overtimeDetail">—</div>
+    <div class="result-row"><span class="result-label">Double Time (2x)</span><span class="result-value" id="doublePay">$0.00</span></div>
+    <div class="result-detail" id="doubleDetail">—</div>
+    <div class="result-row"><span class="result-label">Holiday Pay</span><span class="result-value" id="holidayPay">$0.00</span></div>
+    <div class="result-detail" id="holidayDetail">—</div>
+    <div class="result-row total-row"><span class="result-label">Total Gross Pay</span><span class="result-value total-value" id="totalPay">$0.00</span></div>
+    <div class="result-detail" id="totalDetail">—</div>
+  </section>
+
+  <section class="info-section">
+    <h2>Is Holiday Pay Required by Law?</h2>
+    <p>
+      <strong>No federal law requires private-sector employers to pay holiday pay.</strong> The Fair Labor Standards Act
+      (FLSA) does not mandate any premium pay for holidays or weekends. However, holiday pay is extremely common as
+      a workplace benefit, and many employers offer it voluntarily or are required to by union contracts.
+    </p>
+    <p>
+      The only major exception is <strong>federal employees</strong>, who are entitled to paid holidays and premium
+      pay (typically 2x) for working federal holidays under Title 5 of the US Code.
+    </p>
+
+    <h3>US Federal Holidays for Premium Pay</h3>
+    <p>
+      The 11 federal holidays in the United States are the most common days when private employers offer holiday
+      premium pay:
+    </p>
+    <ul>
+      <li><strong>New Year's Day</strong> (January 1)</li>
+      <li><strong>Martin Luther King Jr. Day</strong> (3rd Monday in January)</li>
+      <li><strong>Presidents Day</strong> (3rd Monday in February)</li>
+      <li><strong>Memorial Day</strong> (Last Monday in May)</li>
+      <li><strong>Juneteenth</strong> (June 19)</li>
+      <li><strong>Independence Day</strong> (July 4)</li>
+      <li><strong>Labor Day</strong> (1st Monday in September)</li>
+      <li><strong>Columbus Day / Indigenous Peoples' Day</strong> (2nd Monday in October)</li>
+      <li><strong>Veterans Day</strong> (November 11)</li>
+      <li><strong>Thanksgiving Day</strong> (4th Thursday in November)</li>
+      <li><strong>Christmas Day</strong> (December 25)</li>
+    </ul>
+
+    <h3>Common Holiday Pay Multipliers by Industry</h3>
+    <ul>
+      <li><strong>Retail:</strong> Often 1.5x on Thanksgiving, Black Friday, Christmas Eve, Christmas Day</li>
+      <li><strong>Restaurants:</strong> Sometimes 1.5x, sometimes regular pay (varies wildly)</li>
+      <li><strong>Healthcare:</strong> Often 1.5x or 2x for nurses and aides on major holidays</li>
+      <li><strong>Manufacturing:</strong> Often 2x under union contracts</li>
+      <li><strong>Public safety:</strong> Police and firefighters often receive 1.5x or 2x by city ordinance</li>
+      <li><strong>Federal employees:</strong> 2x guaranteed by federal law for working federal holidays</li>
+      <li><strong>Distribution / warehouse:</strong> Often 1.5x to 2x, particularly for late-night holiday shifts</li>
+    </ul>
+
+    <h3>How to Calculate Holiday Pay</h3>
+    <p>The basic formula is the same as overtime:</p>
+    <div class="formula-box">Holiday Pay = Hourly Rate × Multiplier × Hours Worked</div>
+    <p>
+      <strong>Example 1:</strong> Working 8 hours on Christmas at $18/hour with 1.5x multiplier:
+      $18 × 1.5 × 8 = <strong>$216</strong>.
+    </p>
+    <p>
+      <strong>Example 2:</strong> Working 6 hours on Thanksgiving at $25/hour with 2x multiplier:
+      $25 × 2 × 6 = <strong>$300</strong>.
+    </p>
+    <p>
+      <strong>Example 3:</strong> A federal employee working 8 hours on Independence Day at $30/hour:
+      $30 × 2 × 8 = <strong>$480</strong>.
+    </p>
+
+    <h3>Holiday Pay vs. Holiday Off Pay</h3>
+    <p>
+      There are two distinct concepts often called "holiday pay":
+    </p>
+    <ul>
+      <li><strong>Holiday premium pay:</strong> Extra pay (1.5x or 2x) for actually working a holiday</li>
+      <li><strong>Holiday off pay:</strong> Getting paid your regular wages for not working on a holiday (paid time off)</li>
+    </ul>
+    <p>
+      Both are voluntary benefits in the private sector. Some employers offer both — you get paid time off if the
+      company is closed, or premium pay if you have to work.
+    </p>
+
+    <h3>Holiday Pay and Overtime</h3>
+    <p>
+      Hours paid as holiday off pay (when you didn't actually work) typically <strong>do not count toward the 40-hour
+      overtime threshold</strong>. Only actual hours worked count for overtime calculations under federal law.
+    </p>
+    <p>
+      For example: If your company is closed on Christmas Day and pays you 8 hours of holiday pay, then you work
+      40 actual hours the rest of the week, you would not be entitled to overtime even though your paystub shows 48
+      hours total. However, if you work 40 regular hours <em>plus</em> 8 hours on a holiday, you've worked 48 hours
+      and are owed overtime on those extra 8 hours (in addition to any holiday premium your employer offers).
+    </p>
+
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <h4>Does my employer have to give me Christmas off?</h4>
+      <p>No. Federal law does not require employers to give any holidays off. Many private companies do, but it's not legally mandated.</p>
+
+      <h4>Am I entitled to time and a half for working on a holiday?</h4>
+      <p>Only if your employer's policy or union contract requires it. Federal law does not require any premium pay for holidays.</p>
+
+      <h4>What if a holiday falls on my regular day off?</h4>
+      <p>Most employers either give you another day off ("floating holiday") or pay you for it. This depends entirely on company policy.</p>
+
+      <h4>Do part-time workers get holiday pay?</h4>
+      <p>Depends on company policy. Some offer prorated holiday pay; others limit it to full-time employees only.</p>
+
+      <h4>Are religious holidays covered?</h4>
+      <p>Federal employees and many private employers recognize specific religious holidays. Title VII also requires reasonable accommodation for religious observances unless it causes undue hardship.</p>
+    </div>
+
+    <p style="margin-top:24px">
+      <strong>Other calculators:</strong>
+      <a href="../">Main calculator</a> ·
+      <a href="../double-time-calculator/">Double time</a> ·
+      <a href="../california-overtime-calculator/">California overtime</a>
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Time and a Half Calculator. Estimates only — not legal or tax advice.</p>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

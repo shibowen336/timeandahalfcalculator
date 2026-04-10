@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New York Overtime Calculator | NY State Overtime Laws &amp; Pay</title>
+<meta name="description" content="Free New York overtime calculator. Compute NY time and a half (1.5x) pay under the NY State Labor Law. Learn NY spread of hours, residential exemptions, and farm rules for 2026.">
+<meta name="keywords" content="new york overtime calculator, ny overtime laws, new york state labor law, nys overtime, spread of hours NY, new york time and a half">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1a5490">
+
+<link rel="canonical" href="https://timeandahalfcalculator.one/new-york-overtime-calculator/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%B0%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://timeandahalfcalculator.one/new-york-overtime-calculator/">
+<meta property="og:title" content="New York Overtime Calculator | NY State Overtime Laws">
+<meta property="og:description" content="Calculate New York overtime pay. Covers NYS Labor Law, spread of hours, residential exemptions.">
+
+<link rel="stylesheet" href="../style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "New York Overtime Calculator",
+  "url": "https://timeandahalfcalculator.one/new-york-overtime-calculator/",
+  "description": "Free New York overtime calculator compliant with NY State Labor Law.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <h1 class="logo"><a href="../">Time and a Half Calculator</a></h1>
+    <p class="tagline">Free overtime, double time &amp; holiday pay calculator</p>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <div class="container">
+    <ul>
+      <li><a href="../">Home</a></li>
+      <li><a href="../california-overtime-calculator/">California</a></li>
+      <li><a href="../new-york-overtime-calculator/" class="active">New York</a></li>
+      <li><a href="../texas-overtime-calculator/">Texas</a></li>
+      <li><a href="../double-time-calculator/">Double Time</a></li>
+      <li><a href="../holiday-pay-calculator/">Holiday Pay</a></li>
+      <li><a href="../flsa-overtime-rules/">FLSA Rules</a></li>
+      <li><a href="../hourly-to-annual-calculator/">Hourly→Annual</a></li>
+      <li><a href="../overtime-pay-chart/">Pay Chart</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container">
+
+  <section class="info-section" style="margin-top:0">
+    <h1 style="font-size:28px;margin-bottom:12px">New York Overtime Calculator</h1>
+    <p>
+      New York State follows the federal 40-hour overtime rule but adds several worker protections of its own.
+      Under the <strong>New York State Labor Law</strong> and the New York State Department of Labor's wage orders,
+      non-exempt workers in NY must receive 1.5 times their regular rate for hours worked over 40 per workweek —
+      plus additional protections like "spread of hours" pay for long workdays. This calculator helps you figure
+      out exactly what you should earn under NY rules.
+    </p>
+  </section>
+
+  <section class="calculator-card">
+    <h2>New York Overtime Pay Calculator</h2>
+    <p class="helper-text">Enter your hourly rate and hours worked. NY uses the federal 40-hour weekly rule.</p>
+
+    <div class="input-group">
+      <label for="hourlyRate">Hourly Rate ($)</label>
+      <input type="number" id="hourlyRate" min="0" step="0.01" value="20">
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label for="regularHours">Regular Hours <span class="hint">(up to 40/week)</span></label>
+        <input type="number" id="regularHours" min="0" step="0.25" value="40">
+      </div>
+      <div class="input-group">
+        <label for="overtimeHours">Overtime Hours <span class="hint">(1.5x rate)</span></label>
+        <input type="number" id="overtimeHours" min="0" step="0.25" value="10">
+      </div>
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label for="doubleHours">Double Time Hours <span class="hint">(2x, contract only)</span></label>
+        <input type="number" id="doubleHours" min="0" step="0.25" value="0">
+      </div>
+      <div class="input-group">
+        <label for="holidayHours">Holiday / Spread Hours</label>
+        <input type="number" id="holidayHours" min="0" step="0.25" value="0">
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="holidayMultiplier">Holiday Pay Multiplier</label>
+      <select id="holidayMultiplier">
+        <option value="1">1.0x (Spread of hours: 1 extra hr at min wage)</option>
+        <option value="1.5" selected>1.5x (Union/contract premium)</option>
+        <option value="2">2.0x</option>
+      </select>
+    </div>
+
+    <button id="calculateBtn" class="btn-primary">Calculate Pay</button>
+    <button id="resetBtn" class="btn-secondary">Reset</button>
+  </section>
+
+  <section class="results-card" id="results">
+    <h2>Your New York Pay Breakdown</h2>
+    <div class="result-row"><span class="result-label">Regular Pay</span><span class="result-value" id="regularPay">$0.00</span></div>
+    <div class="result-detail" id="regularDetail">—</div>
+    <div class="result-row"><span class="result-label">Overtime Pay (1.5x)</span><span class="result-value" id="overtimePay">$0.00</span></div>
+    <div class="result-detail" id="overtimeDetail">—</div>
+    <div class="result-row"><span class="result-label">Double Time Pay (2x)</span><span class="result-value" id="doublePay">$0.00</span></div>
+    <div class="result-detail" id="doubleDetail">—</div>
+    <div class="result-row"><span class="result-label">Holiday / Spread Pay</span><span class="result-value" id="holidayPay">$0.00</span></div>
+    <div class="result-detail" id="holidayDetail">—</div>
+    <div class="result-row total-row"><span class="result-label">Total Gross Pay</span><span class="result-value total-value" id="totalPay">$0.00</span></div>
+    <div class="result-detail" id="totalDetail">—</div>
+  </section>
+
+  <section class="info-section">
+    <h2>New York State Overtime Laws</h2>
+    <p>
+      The New York State Labor Law and Minimum Wage Order regulations govern overtime for most private-sector workers
+      in NY. In most respects, New York mirrors the federal FLSA — overtime at 1.5x after 40 hours per workweek — but
+      New York also adds several unique protections that can increase your paycheck.
+    </p>
+
+    <h3>The 40-Hour Weekly Rule</h3>
+    <p>
+      Non-exempt employees in New York must be paid at 1.5 times their regular rate for all hours worked beyond 40 in
+      a workweek. Unlike California, New York does not require daily overtime — only weekly. A "workweek" is any fixed,
+      recurring 168-hour period.
+    </p>
+
+    <h3>New York Minimum Wage 2026</h3>
+    <p>
+      New York has different minimum wages depending on region, and this matters for overtime because the exempt
+      salary threshold is tied to the minimum wage. As of 2025:
+    </p>
+    <ul>
+      <li><strong>NYC, Long Island, Westchester:</strong> $16.50/hour</li>
+      <li><strong>Rest of New York State:</strong> $15.50/hour</li>
+      <li><strong>Tipped food service workers:</strong> Lower cash wage with tip credit</li>
+      <li><strong>Fast food workers:</strong> Special minimum wage may apply</li>
+    </ul>
+
+    <h3>NY Exempt Salary Threshold</h3>
+    <p>
+      New York has a higher exempt employee salary threshold than federal law. To be exempt from overtime in NY under
+      the executive or administrative exemption, as of 2025:
+    </p>
+    <ul>
+      <li><strong>NYC, Long Island, Westchester:</strong> $1,237.50/week ($64,350/year)</li>
+      <li><strong>Rest of NY State:</strong> $1,161.65/week ($60,405/year)</li>
+      <li><strong>Federal threshold:</strong> $684/week ($35,568/year)</li>
+    </ul>
+    <p>
+      This means many workers who would be exempt under federal law are still entitled to overtime under New York
+      State law. Always use whichever threshold is higher.
+    </p>
+
+    <h3>Spread of Hours Rule</h3>
+    <p>
+      New York has a unique "<strong>spread of hours</strong>" rule that doesn't exist in federal law. If an employee's
+      workday spans more than 10 hours from start to finish (including meal breaks and unpaid time), the employer must
+      pay <strong>one additional hour at the minimum wage</strong>.
+    </p>
+    <p>
+      <strong>Example:</strong> You work a split shift from 8:00 AM to 11:00 AM and 4:00 PM to 8:00 PM (7 hours worked,
+      but 12 hours from start to end). Your employer owes you 7 hours of wages plus 1 additional hour at minimum wage
+      for the spread-of-hours premium.
+    </p>
+
+    <h3>Call-In Pay (Show-Up Pay)</h3>
+    <p>
+      If you report to work as scheduled and your employer sends you home early, New York may require you to be paid
+      a minimum number of hours at the applicable rate. The exact rules depend on the industry (retail, hospitality,
+      etc.) under the applicable Wage Order. Generally, you must be paid for at least 4 hours or your scheduled shift,
+      whichever is less.
+    </p>
+
+    <h3>Residential Employees</h3>
+    <p>
+      Residential employees (those who live in the employer's home) are subject to different overtime rules in New York:
+    </p>
+    <ul>
+      <li>Overtime applies after <strong>44 hours</strong> per week instead of 40</li>
+      <li>Other state labor protections still apply</li>
+    </ul>
+
+    <h3>Farm Workers</h3>
+    <p>
+      As of 2020, New York began phasing in overtime for farm workers. The current weekly threshold is set by the NY
+      Commissioner of Labor and has been decreasing over time, with a goal of reaching 40 hours. Check the NY DOL
+      website for the current year's threshold.
+    </p>
+
+    <h3>Examples: Calculating NY Overtime</h3>
+    <p><strong>Example 1:</strong> Jessica works 50 hours in a Brooklyn restaurant at $18/hour:</p>
+    <ul>
+      <li>Regular pay: $18 × 40 = $720</li>
+      <li>Overtime: $18 × 1.5 × 10 = $270</li>
+      <li>No spread of hours triggered</li>
+      <li><strong>Total: $990</strong></li>
+    </ul>
+
+    <p><strong>Example 2:</strong> Miguel works a split shift in NYC from 6 AM to 10 AM and 5 PM to 9 PM (8 hours worked, 15-hour spread) at $17/hour:</p>
+    <ul>
+      <li>Regular pay: $17 × 8 = $136</li>
+      <li>Spread of hours premium: 1 hour × $16.50 minimum wage = $16.50</li>
+      <li><strong>Total for that day: $152.50</strong></li>
+    </ul>
+
+    <p><strong>Example 3:</strong> A salaried administrative employee earning $55,000/year in Manhattan:</p>
+    <ul>
+      <li>Federal exempt threshold: $35,568 — she would be exempt</li>
+      <li>NY (NYC) exempt threshold: $64,350 — she is <strong>NOT exempt</strong></li>
+      <li>Under NY law, she must receive overtime for hours over 40/week</li>
+    </ul>
+
+    <h3>Filing a Wage Claim in New York</h3>
+    <p>
+      If your NY employer isn't paying overtime correctly, you can file a claim with the
+      <strong>New York State Department of Labor</strong> (NYSDOL) Division of Labor Standards. New York has a 6-year
+      statute of limitations for wage claims — significantly longer than the federal 2-3 year window. You can recover:
+    </p>
+    <ul>
+      <li>Back wages</li>
+      <li>100% liquidated damages (doubling recovery)</li>
+      <li>Interest</li>
+      <li>Attorney's fees and costs</li>
+    </ul>
+
+    <h3>FAQ: New York Overtime</h3>
+    <div class="faq">
+      <h4>Does New York require daily overtime?</h4>
+      <p>No. Unlike California, New York only requires overtime after 40 hours in a workweek. However, spread-of-hours rules can add extra pay for long days.</p>
+
+      <h4>What is the NY minimum wage for overtime?</h4>
+      <p>Overtime is calculated based on your regular rate, not the minimum wage. If you earn above minimum wage, your overtime rate uses your actual hourly rate × 1.5.</p>
+
+      <h4>Are tips included in my overtime rate?</h4>
+      <p>In New York, tipped food service workers must be paid overtime based on the full NY minimum wage (not the lower cash wage), minus the allowable tip credit.</p>
+
+      <h4>How long do I have to file a NY wage claim?</h4>
+      <p>Six years from the date the wages were due. This is much longer than the federal 2-3 year FLSA statute of limitations.</p>
+    </div>
+
+    <p style="margin-top:24px">
+      <strong>Related calculators:</strong>
+      <a href="../">Main calculator</a> ·
+      <a href="../california-overtime-calculator/">California rules</a> ·
+      <a href="../texas-overtime-calculator/">Texas rules</a>
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Time and a Half Calculator. Estimates only — not legal or tax advice.</p>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
