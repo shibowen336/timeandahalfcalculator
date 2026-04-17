@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(grep \"BreadcrumbList\\\\|Article\\\\|WebApplication\" /e/VScode/timeandahalfcalculator/*/index.html)"
+      "Bash(grep \"BreadcrumbList\\\\|Article\\\\|WebApplication\" /e/VScode/timeandahalfcalculator/*/index.html)",
+      "WebFetch(domain:medium.com)",
+      "Bash(curl -s \"https://www.bing.com/indexnow?url=https://medium.com/@longhe336/how-to-calculate-your-real-annual-income-as-an-hourly-worker-6974d0db4577&key=timeandahalfcalculator\" -o /dev/null -w \"%{http_code}\")"
     ]
   }
 }
