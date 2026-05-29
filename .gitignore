@@ -1,3 +1,6 @@
+# Claude Code local settings (per-machine permission allowlist; not for sharing)
+.claude/settings.local.json
+
 # Visual brainstorming companion (local mockups, not for commit)
 .superpowers/
 
